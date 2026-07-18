@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Database
+database.db
+
+# Logs
+bot.log
+
+# Secrets
+.env
+
+# VSCode
+.vscode/
+
+# Local backups
+backups/
+
+# Archives
+*.zip
