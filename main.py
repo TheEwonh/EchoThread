@@ -9,6 +9,10 @@ from modules.banland import AppealButton, ManageAppeal
 from modules import database
 from discord.ext import commands
 import logging
+from dotenv import load_dotenv
+import os
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
 ### VALUES ###
 intents = discord.Intents.default()
 intents.message_content = True
@@ -62,4 +66,4 @@ bot = MyBot(command_prefix="!", intents=intents)
 async def on_ready():
     logger.info(f"Logged in as {bot.user}")
     
-bot.run(config["token"])
+bot.run(TOKEN)
