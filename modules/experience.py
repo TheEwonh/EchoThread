@@ -77,7 +77,7 @@ class Experience(commands.Cog):
         text = ""
         for user in top:
             place = top.index(user) + 1
-            text += f"{"🥇 " if place == 1 else "🥈 " if place == 2 else "🥉 " if place == 3 else f"{place}."} {member.mention}\nLevel {user[1]} • {user[2]} XP\n\n"
+            text += f"{"🥇 " if place == 1 else "🥈 " if place == 2 else "🥉 " if place == 3 else f"{place}."} {self.bot.fetch_member(user[0].mention)}\nLevel {user[1]} • {user[2]} XP\n\n"
         embed.add_field(
             name="Members:",
             value=text+f"Your position:\n#{await db.getLeaderboardPlace(level, experience)} • Level {level} • {experience}/{exp_levelup} XP",
