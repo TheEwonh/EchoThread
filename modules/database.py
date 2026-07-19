@@ -138,6 +138,7 @@ async def setInfo(action:str, *args):
                 )
                 
 async def get(action, value):
+    value = int(value)
     match action:
         case "bans":
             async with pool.acquire() as db:
