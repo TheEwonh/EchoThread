@@ -17,48 +17,48 @@ async def setup():
     async with pool.acquire() as db:
         await db.execute("""
             CREATE TABLE IF NOT EXISTS bans(
-                user_id INTEGER PRIMARY KEY,
+                user_id BIGINT PRIMARY KEY,
                 reason TEXT,
                 moderator TEXT
             )
         """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS appeal_cd(
-                user_id INTEGER PRIMARY KEY,
+                user_id BIGINT PRIMARY KEY,
                 cooldown INTEGER
             )
         """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS appeals(
-                user_id INTEGER PRIMARY KEY,
+                user_id BIGING PRIMARY KEY,
                 message_id INTEGER
             )
         """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS mutes(
-                user_id INTEGER PRIMARY KEY,
+                user_id BIGINT PRIMARY KEY,
                 reason TEXT,
-                time INTEGER,
+                time BIGINT,
                 moderator TEXT
             )
         """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS warns(
                 warn_id BIGSERIAL PRIMARY KEY,
-                user_id INTEGER,
+                user_id BIGINT,
                 reason TEXT,
-                severity INTEGER,
-                time INTEGER,
-                moderator_id INTEGER
+                severity BIGINT,
+                time BIGINT,
+                moderator_id BIGINT
             )
         """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS levels(
-                user_id INTEGER PRIMARY KEY,
-                experience INTEGER,
-                exp_levelup INTEGER,
-                level INTEGER,
-                addition_exp INTEGER
+                user_id BIGINT PRIMARY KEY,
+                experience BIGINT,
+                exp_levelup BIGINT,
+                level BIGINT,
+                addition_exp BIGINT
             )
         """)
         
