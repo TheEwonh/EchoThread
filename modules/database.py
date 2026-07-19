@@ -25,13 +25,13 @@ async def setup():
         await db.execute("""
             CREATE TABLE IF NOT EXISTS appeal_cd(
                 user_id BIGINT PRIMARY KEY,
-                cooldown INTEGER
+                cooldown BIGINT
             )
         """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS appeals(
                 user_id BIGING PRIMARY KEY,
-                message_id INTEGER
+                message_id BIGINT
             )
         """)
         await db.execute("""
