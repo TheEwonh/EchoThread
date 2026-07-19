@@ -30,7 +30,7 @@ async def setup():
         """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS appeals(
-                user_id BIGING PRIMARY KEY,
+                user_id BIGINT PRIMARY KEY,
                 message_id BIGINT
             )
         """)
