@@ -117,7 +117,7 @@ class TranslateView(discord.ui.View):
 
     @discord.ui.button(label="Translate", style=discord.ButtonStyle.grey, emoji="🌐", custom_id="translate_button")
     async def translatebtn_callback(self, interaction: discord.Interaction, button: discord.ui.Button):
-        await interaction.response.send_message("Select language for text to be translated...", view=SelectMenu(interaction.message))
+        await interaction.response.send_message("Select language for text to be translated...", view=SelectMenu(interaction.message), ephemeral=True)
 
 class Translate(commands.Cog):
     def __init__(self, bot):
