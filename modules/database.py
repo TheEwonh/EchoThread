@@ -59,15 +59,12 @@ async def setup():
                 exp_levelup BIGINT,
                 level BIGINT,
                 addition_exp BIGINT
-<<<<<<< HEAD
-=======
             )
         """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS translate(
                 message_id BIGINT PRIMARY KEY,
                 details JSONB
->>>>>>> bfec91f (Add translation system with DeepL caching)
             )
         """)
         
