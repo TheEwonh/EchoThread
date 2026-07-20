@@ -6,6 +6,7 @@ from modules.verification import VerificationView
 from modules.rolepicker import ButtonsPingView
 from modules.rolepicker import ButtonsInterestsView
 from modules.banland import AppealButton, ManageAppeal
+from modules.translate import TranslateView
 from modules import database
 from discord.ext import commands
 import logging
@@ -59,6 +60,7 @@ class MyBot(commands.Bot):
         self.add_view(VerificationView())
         self.add_view(ButtonsPingView())
         self.add_view(ButtonsInterestsView())
+        self.add_view(TranslateView())
         self.add_view(AppealButton(self))
         self.add_view(ManageAppeal(self))
         await self.tree.sync(guild=discord.Object(id=config["guild"]))
