@@ -1,0 +1,14 @@
+{
+    "title": "🎮 Game Updates",
+    "description": "Changelogs",
+    "fields": [
+        "**Added**",
+        "\\- Things that were added",
+        "**Fixed**",
+        "\\- Things that were fixed",
+        "**Removed**",
+        "\\- Things that were removed",
+        "",
+        "Thank you for your support! 💜"
+    ]
+}
