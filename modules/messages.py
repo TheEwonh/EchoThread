@@ -88,7 +88,7 @@ class Messages(commands.Cog):
         avatar = discord.File("sources/avatar.png", filename="avatar.png")
         embed.set_footer(text="EchoThread", icon_url="attachment://avatar.png")
 
-        await channel.send(embed=embed, file=avatar)
+        await channel.send(embed=embed, file=avatar, view=TranslateView())
         await channel.send(f"||{self.bot.get_channel(config['channels']['NEWS']).guild.get_role(config['roles']['ANNOUNCEMENTS']).mention}||")
         logger.info("News were sent")
     
@@ -108,7 +108,7 @@ class Messages(commands.Cog):
         avatar = discord.File("sources/avatar.png", filename="avatar.png")
         embed.set_footer(text="EchoThread", icon_url="attachment://avatar.png")
         
-        await channel.send(embed=embed, file=avatar, view=TranslateView())
+        await channel.send(embed=embed, file=avatar)
         await channel.send(f"||{self.bot.get_channel(config['channels']['NEWS']).guild.get_role(config['roles']['GAMEUPD']).mention}||")
         logger.info("Game updates were sent")
 
