@@ -7,9 +7,12 @@ database.db
 
 # Logs
 bot.log
+start.bat
+discord bot.code-workspace
 
 # Secrets
 .env
+.gitignore
 
 # VSCode
 .vscode/

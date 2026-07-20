@@ -54,6 +54,8 @@ class MyBot(commands.Bot):
         logger.info("Logger module loaded")
         await self.load_extension("modules.experience")
         logger.info("Experience module loaded")
+        await self.load_extension("modules.translate")
+        logger.info("Translate module loaded")
         self.add_view(VerificationView())
         self.add_view(ButtonsPingView())
         self.add_view(ButtonsInterestsView())

@@ -1,4 +1,4 @@
-import asyncpg, logging, os
+import asyncpg, logging, os, json
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -59,6 +59,15 @@ async def setup():
                 exp_levelup BIGINT,
                 level BIGINT,
                 addition_exp BIGINT
+<<<<<<< HEAD
+=======
+            )
+        """)
+        await db.execute("""
+            CREATE TABLE IF NOT EXISTS translate(
+                message_id BIGINT PRIMARY KEY,
+                details JSONB
+>>>>>>> bfec91f (Add translation system with DeepL caching)
             )
         """)
         
@@ -136,6 +145,18 @@ async def setInfo(action:str, *args):
                         addition_exp = excluded.addition_exp;
                 """, int(args[0]), int(args[1]), int(args[2]), int(args[3]), int(args[4])
                 )
+        case "translate":
+            async with pool.acquire() as db:
+                await db.execute("""
+                    INSERT INTO translate(message_id, details)
+                    VALUES ($1, $2::jsonb)
+                    ON CONFLICT(message_id)
+                    DO UPDATE SET
+                        details = excluded.details;
+                """, int(args[0]), json.dumps(args[1])
+                )
+
+                logger.info(f"Set info to translate table for message {int(args[0])}")
                 
 async def get(action, value):
     value = int(value)
@@ -217,6 +238,15 @@ async def get(action, value):
                     WHERE user_id = $1
                 """, value)
 
+                return row
+        case "translate":
+            async with pool.acquire() as db:
+                row = await db.fetchrow("""
+                    SELECT * FROM translate
+                    WHERE message_id = $1
+                """, value)
+
+                logger.info(f"Get method was fired for translate table - message_id:{value}")
                 return row
             
 async def delete(action, value: int):

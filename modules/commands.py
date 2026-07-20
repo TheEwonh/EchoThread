@@ -142,7 +142,7 @@ class Commands(commands.Cog):
             await ctx.send("Missing arguments")
             logger.warning("Tried using db command, but no arguments were given")
             return
-        if table in ("bans", "appeals", "appeal_cd", "mutes", "warns", "levels"):
+        if table in ("bans", "appeals", "appeal_cd", "mutes", "warns", "levels", "translate"):
             match action:
                 case "get":
                     await ctx.send(f"Result for get method on {table} table - {await database.get(table, args[0])}")
