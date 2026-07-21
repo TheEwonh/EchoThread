@@ -128,7 +128,7 @@ class Messages(commands.Cog):
         avatar = discord.File("sources/avatar.png", filename="avatar.png")
         embed.set_footer(text="EchoThread", icon_url="attachment://avatar.png")
         
-        await channel.send(embed=embed, file=avatar)
+        await channel.send(embed=embed, file=avatar, view=TranslateView())
         await channel.send(f"||{self.bot.get_channel(config['channels']['CHANGELOG']).guild.get_role(config['roles']['DEVUPD']).mention}||")
         logger.info("Development updates were sent")
 
