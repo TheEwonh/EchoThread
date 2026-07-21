@@ -3,6 +3,7 @@ import discord, deepl, os, logging, json, re
 from discord.ext import commands
 from discord import app_commands
 from modules import database as db
+# allowed_channels = (1524086281993326612, 1524086375094292625, 1524085746955452618, 1524086045270868149)
 
 translator = deepl.Translator(os.getenv("DEEPL_API_KEY"))
 logger = logging.getLogger("Translate")
