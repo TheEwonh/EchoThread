@@ -83,7 +83,7 @@ class SelectMenu(discord.ui.View):
                         result_text.append(bool(fields))
                     result_text.append(result[i].text)
                 for field in result_text:
-                    if field is bool:
+                    if type(field) is bool:
                         continue
                     for placeholder, emoji in placeholders.items():
                         field = field.replace(placeholder, emoji)
