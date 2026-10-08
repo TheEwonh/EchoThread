@@ -1,7 +1,7 @@
 
-# EchoThread discord bot
+# EchoThread
 
-Discord bot written in Python using [discord.py](https://discordpy.readthedocs.io/en/stable/) for my small [server](https://discord.gg/4SyRrAavqB)
+Discord bot written in Python using [discord.py](https://discordpy.readthedocs.io/en/stable/) for my small [server](https://discord.gg/BR4QW9B8BT)
 
 ## Features
 
